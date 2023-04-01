@@ -1,0 +1,29 @@
+package basic;
+/*1) Diff Map() and FlatMap()
+
+*/
+import java.util.*;
+import java.util.stream.Collectors;
+import java.io.*;
+ public class javamain{
+	 
+	 public static void main(String[] args)   {
+		 //Use Of Map
+		 List<String> strings = Arrays.asList("hello", "world", "java");
+		 List<Integer> lengths = strings.stream()
+		                                 .map(String::length)
+		                                 .collect(Collectors.toList());
+		 System.out.println(lengths);
+		 //FlatMap
+		 List<List<Integer>> listOfLists = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4));
+		 List<Integer> flattenedList = listOfLists.stream()
+		                                             .flatMap(Collection::stream)
+		                                             .collect(Collectors.toList());
+		 System.out.println(flattenedList);
+  } 
+}
+/*Output:
+[5, 5, 4]
+[1, 2, 3, 4]
+
+*/
