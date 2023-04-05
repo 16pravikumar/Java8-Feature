@@ -1,0 +1,27 @@
+package basic;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+//Remove the duplicate value from the array.
+
+public class javamain {
+	public static void main(String[] args)
+    {
+        
+		int[] arr = {1, 2, 3, 4, 1, 5, 6, 3};
+		int[] result = Arrays.stream(arr)
+		                    .distinct()
+		                    .filter(num -> Arrays.stream(arr).filter(n -> n == num).count() == 1)
+		                    .toArray();
+		System.out.println(Arrays.toString(result));
+		// result will be [2, 4, 5, 6]
+       
+} 
+}
+
+/*Output:
+	[2, 4, 5, 6]
+*/
