@@ -1,0 +1,21 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+// Print the highest value using lambda function
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        ArrayList<Integer> list=new ArrayList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+        list.add(40);
+        Integer maxInt = list.stream()
+                              .max(Comparator.comparing(i -> i))
+                              .get();
+
+    System.out.println("Highest Valuet is " + maxInt);
+    }
+}
+/* Output
+    Maximum number in the set is 40
+*/
