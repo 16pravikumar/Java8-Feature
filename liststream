@@ -1,0 +1,47 @@
+// All Stream Operation
+import java.util.*;
+import java.util.Map;
+import java.util.stream.Collectors;  
+public class MyClass {
+    public static void main(String args[]) {
+    List<Integer> list=List.of(1,2,3,5,4,4,5);
+    //Even Number
+    List<Integer> list2=list.stream().filter(n->n%2==0).collect(Collectors.toList());
+    //Even +add 10 
+     List<Integer> list3=list.stream().filter(n->n%2==0).map(p->p+10).collect(Collectors.toList());
+     //Sorted -ascending order
+     List<Integer> list4=list.stream().sorted().collect(Collectors.toList());
+     //Sorted -descending order
+     List<Integer> list5=list.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+     //Remove duplicate value
+      List<Integer> list6=list.stream().distinct().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+     //print duplicate value
+     List<Integer> list7 = list.stream()
+                .collect(Collectors.groupingBy(i -> i, Collectors.counting()))
+                .entrySet().stream()
+                .filter(e -> e.getValue() > 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+    //Third Largest number
+     List<Integer> list8=list.stream().distinct().sorted(Comparator.reverseOrder()).limit(3).skip(2).collect(Collectors.toList());
+   //Find the gratest number
+   int greatest = list.stream().max(Integer::compareTo).orElse(-1);
+    //Print the all value
+    System.out.println(list2);
+      System.out.println(list3);
+       System.out.println(list4);
+        System.out.println(list5);
+         System.out.println(list6);
+           System.out.println(list7);
+             System.out.println(greatest);
+    }
+}
+ /*output
+           [2, 4, 4]
+[12, 14, 14]
+[1, 2, 3, 4, 4, 5, 5]
+[5, 5, 4, 4, 3, 2, 1]
+[5, 4, 3, 2, 1]
+[4, 5]
+5
+           */
