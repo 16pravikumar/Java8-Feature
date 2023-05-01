@@ -1,0 +1,51 @@
+//Functional Inteface Example and its type:
+import java.util.*;
+import java.util.Map;
+import java.util.stream.*;
+import java.util.stream.Collectors; 
+import java.util.function.*;
+
+ interface inter1{
+    public void display();
+}
+ public class MyClass {
+     
+     static void printMessage(String name){  
+        System.out.println("Hello "+name);  
+    } 
+      static String show(String message){  
+        return "Hello "+message;  
+    }  
+     static void printSupplier(){  
+        System.out.println("Hello Praveen");  
+    } 
+    public static void main(String args[]) {
+        inter1 obj=()->{ 
+            System.out.println("hiiiiii");
+        };
+        obj.display();
+        Predicate<String> s=str->str.length()>5;
+        System.out.println(s.test("pr"));
+        
+        Consumer<String> consumer1 = MyClass::printMessage;  
+        consumer1.accept("John");   // Calling Consumer method  
+        
+           // Function interface referring to a method  
+        Function<String, String> fun = MyClass::show;  
+        // Calling Function interface method  
+        System.out.println(fun.apply("Peter"));  
+        
+         // This function returns a random value.
+        Supplier<Double> randomValue = () -> Math.random();
+  
+        // Print the random value using get()
+        System.out.println(randomValue.get());
+    }
+}
+/*
+hiiiiii
+false
+Hello John
+Hello Peter
+0.6392968828128058
+*/
