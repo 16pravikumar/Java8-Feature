@@ -1,0 +1,23 @@
+import java.util.Arrays;
+public class Main
+{
+    public void toString(String m){
+        System.out.print("dfdf");
+    }
+	public static void main(String[] args) {
+	    int[] keys = {4, 1, 6, 3, 8};
+String[] values = {"four", "one", "six", "three", "eight"};
+
+// sort the arrays in parallel
+Arrays.parallelSort(keys);
+Arrays.parallelSort(values);
+
+// print the sorted arrays
+System.out.println(Arrays.toString(keys));    // [1, 3, 4, 6, 8]
+System.out.println(Arrays.toString(values));  // [eight, one, four, six, three]
+/*
+    [1, 3, 4, 6, 8]
+    [eight, four, one, six, three]
+*/
+	}
+}
